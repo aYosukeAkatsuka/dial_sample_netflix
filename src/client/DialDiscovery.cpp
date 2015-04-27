@@ -48,8 +48,9 @@ using namespace std;
 
 DialDiscovery *DialDiscovery::sDiscovery = 0;
 
-static char ip_addr[INET_ADDRSTRLEN] = "127.0.0.1";
-static int my_port = 0;
+//static char ip_addr[INET_ADDRSTRLEN] = "127.0.0.1";
+//static int my_port = 0;
+
 static struct sockaddr_in saddr;
 typedef struct
 {
@@ -151,6 +152,9 @@ static void getServerInfo( const string &server, string& appsUrl, string& ddxml 
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, receiveData);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &ddxml);
     res = curl_easy_perform(curl);
+    if (res != CURLE_OK) {
+      // ToDo: error handling
+    }
 
     curl_easy_cleanup(curl);
     //curl_global_cleanup();

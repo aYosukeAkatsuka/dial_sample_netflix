@@ -55,8 +55,7 @@ static void printServerList( vector<DialServer*> list )
         (*it)->getFriendlyName( name );
         (*it)->getUuid( uuid );
         printf("%Zu: Server IP[%s] UUID[%s] FriendlyName[%s] \n", 
-            i+1, (*it)->getIpAddress().c_str(),
-            uuid.c_str(), name.c_str() );
+            (size_t) i+1, (*it)->getIpAddress().c_str(), uuid.c_str(), name.c_str());
     }
 }
 
@@ -181,7 +180,7 @@ int handleUser(DialDiscovery *pDial) {
                 {
                     string name;
                     list[i]->getFriendlyName(name);
-                    printf("Server %Zu: %s\n", i+1, name.c_str());
+                    printf("Server %Zu: %s\n", (size_t) i+1, name.c_str());
                 }
                 printf("\n*********************************\n\n");
             }break;
