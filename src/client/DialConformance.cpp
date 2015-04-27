@@ -32,6 +32,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 // Number of milliseconds to sleep between launches when doing a launch=ALL
 #define LAUNCH_SLEEP 6000

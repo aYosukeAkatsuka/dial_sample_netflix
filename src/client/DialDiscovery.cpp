@@ -253,7 +253,8 @@ void * DialDiscovery::send_mcast(void *p)
     pthread_attr_t attr;
     search_conn connection;
 
-    send_size = snprintf(send_buf, sizeof(send_buf), ssdp_msearch, ip_addr, my_port);
+    //send_size = snprintf(send_buf, sizeof(send_buf), ssdp_msearch, ip_addr, my_port);
+    send_size = snprintf(send_buf, sizeof(send_buf), ssdp_msearch);
     ATRACE("[%s:%d] %s\n", __FUNCTION__, __LINE__, send_buf);
 
     if (-1 == (my_sock = socket(AF_INET, SOCK_DGRAM, 0))) {
