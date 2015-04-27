@@ -1,2 +1,3 @@
 
+CURL_LIB=/home/aka/work/curl/lib/.libs/libcurl.so
 CURL_INCLUDE=/home/aka/work/curl/include
