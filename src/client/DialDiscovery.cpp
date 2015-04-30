@@ -86,7 +86,9 @@ static string getLocation(char *pResponse)
     while( index != string::npos ) {
         locUrl = loc.substr(prev, index-prev);
         ATRACE("locUrl: ##%s## prev: %d index %d\n", locUrl.c_str(), (int)prev, (int)index );
-        if( locUrl.find("LOCATION: ") != string::npos ) {
+        // FIXME: "LOCATION" must be case insensitive! this is dirty work around.
+        if( locUrl.find("LOCATION: ") != string::npos || 
+            locUrl.find("Location: ") != string::npos) {
             index = locUrl.find("\r\n");
             retUrl = locUrl.substr( 10 );
             break;
