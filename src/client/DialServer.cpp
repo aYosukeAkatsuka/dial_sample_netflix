@@ -193,6 +193,7 @@ int DialServer::launchApplication(
 {
     ATRACE("%s: Launch %s\n", __FUNCTION__, application.c_str());
     string appUrl = m_appsUrl;
+    appUrl.append("/");;
     sendCommand( appUrl.append(application), COMMAND_LAUNCH, payload, responseHeaders, responseBody);
     return 0;
 }
@@ -205,6 +206,7 @@ int DialServer::getStatus(
     ATRACE("%s: GetStatus %s\n", __FUNCTION__, application.c_str());
     string emptyPayload;
     string appUrl = m_appsUrl;
+    appUrl.append("/");;
     sendCommand( appUrl.append(application), COMMAND_STATUS, emptyPayload, responseHeaders, responseBody );
 
     ATRACE("Body: %s\n", responseBody.c_str());
@@ -230,6 +232,7 @@ int DialServer::stopApplication(
     ATRACE("%s: Quit %s\n", __FUNCTION__, application.c_str());
     string emptyPayload, responseBody;  // dropping this
     string appUrl = m_appsUrl;
+    appUrl.append("/");;
 
     // just call status to update the run endpoint
     getStatus( application, responseHeaders, responseBody );
